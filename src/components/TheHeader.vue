@@ -40,10 +40,14 @@
       </button>
       <button class="relative group p-2 focus:outline-none">
         <BaseIcon name="viewGrid" classes="w-5 h-5" />
+        
+        <!-- <TheDropdownApps /> -->
       </button>
 
       <button class="relative group p-2 focus:outline-none">
         <BaseIcon name="dotsVertical" classes="w-5 h-5" />
+        
+        <!-- <TheDropdownSettings /> -->
       </button>
 
       <ButtonLogin />
