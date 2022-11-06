@@ -18,5 +18,10 @@ export default {
       path: icons[this.name],
     }
   },
+  computed: {
+    classes() {
+      return this.classes || 'w-6 h-6'
+    },
+  },
 }
 </script>

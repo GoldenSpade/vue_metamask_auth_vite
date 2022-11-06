@@ -1,5 +1,6 @@
 <template>
   <main class="md:ml-24 xl:ml-64 pt-32 px-5 pb-5">
+    <TheIconsLibrary />
     <div
       class="
         grid
@@ -19,7 +20,15 @@
 
 <script>
 import VideoItem from './VideoItem.vue'
+import TheIconsLibrary from './TheIconsLibrary.vue'
+
 export default {
-  components: {VideoItem},
+  components: {VideoItem, TheIconsLibrary},
+
+  computed: {
+    iconsInComponent() {
+      return Object.keys(icons)
+    },
+  },
 }
 </script>
