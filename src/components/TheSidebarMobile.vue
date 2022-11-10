@@ -1,8 +1,32 @@
 <template>
-  <div class="fixed inset-0 bg-black bg-opacity-50 z-30">
-    <aside class="w-64 max-h-screen overflow-auto bg-white">
+  <transition
+    enter-active-class="transition-opacity ease-linear duration-200"
+    enter-from-class="opacity-0"
+    enter-to-class="opacity-100"
+    leave-active-class="transition-opacity ease-linear duration-200"
+    leave-from-class="opacity-100"
+    leave-to-class="opacity-0"
+  >
+    <TheSidebarMobileOverlay @click="$emit('close')" v-show="isOpen" />
+  </transition>
+
+  <transition
+    enter-active-class="transition ease-in-out duration-200 transform"
+    enter-from-class="-translate-x-full"
+    enter-to-class="translate-x-0"
+    leave-active-class="transition ease-in-out duration-200 transform"
+    leave-from-class="translate-x-0"
+    leave-to-class="-translate-x-full"
+  >
+    <aside
+      class="fixed z-40 w-64 max-h-screen overflow-auto bg-white outline-none"
+      v-show="isOpen"
+      ref="mobileSidebar"
+      @keydown.esc="$emit('close')"
+      tabindex="-1"
+    >
       <section class="flex items-center p-4 border-b sticky top-0 bg-white">
-        <button class="ml-2 mr-6 focus:outline-none">
+        <button class="ml-2 mr-6 focus:outline-none" @click="$emit('close')">
           <BaseIcon name="menu" classes="w-6 h-12" />
         </button>
         <LogoMain />
@@ -10,15 +34,30 @@
 
       <SidebarContent />
     </aside>
-  </div>
+  </transition>
 </template>
 
 <script>
+import TheSidebarMobileOverlay from './TheSidebarMobileOverlay.vue'
 import LogoMain from './LogoMain.vue'
 import SidebarContent from './SidebarContent.vue'
 import BaseIcon from './BaseIcon.vue'
 
 export default {
-  components: {LogoMain, SidebarContent, BaseIcon},
+  components: {TheSidebarMobileOverlay, LogoMain, SidebarContent, BaseIcon},
+
+  props: {
+    isOpen: Boolean,
+  },
+
+  emits: {
+    close: null,
+  },
+
+  watch: {
+    isOpen() {
+      this.$nextTick(() => this.isOpen && this.$refs.mobileSidebar.focus())
+    },
+  },
 }
 </script>

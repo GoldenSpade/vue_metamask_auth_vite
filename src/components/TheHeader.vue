@@ -2,7 +2,10 @@
   <header class="flex justify-between fixed z-30 w-full">
     <div class="lg:w-1/4 flex">
       <div class="flex items-center xl:w-64 xl:bg-white pl-4">
-        <button class="mr-3 sm:ml-2 sm:mr-6 focus:outline-none">
+        <button
+          class="mr-3 sm:ml-2 sm:mr-6 focus:outline-none"
+          @click="$emit('openMobileSidebar')"
+        >
           <BaseIcon name="menu" classes="w-6 h-6" />
         </button>
 
@@ -40,13 +43,13 @@
       </button>
       <button class="relative group p-2 focus:outline-none">
         <BaseIcon name="viewGrid" classes="w-5 h-5" />
-        
+
         <!-- <TheDropdownApps /> -->
       </button>
 
       <button class="relative group p-2 focus:outline-none">
         <BaseIcon name="dotsVertical" classes="w-5 h-5" />
-        
+
         <!-- <TheDropdownSettings /> -->
       </button>
 
@@ -71,6 +74,10 @@ export default {
     TheSearch,
     ButtonLogin,
     BaseIcon,
+  },
+
+  emits: {
+    openMobileSidebar: null,
   },
 }
 </script>
