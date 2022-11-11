@@ -4,7 +4,7 @@
       <div class="flex items-center xl:w-64 xl:bg-white pl-4">
         <button
           class="mr-3 sm:ml-2 sm:mr-6 focus:outline-none"
-          @click="$emit('openMobileSidebar')"
+          @click="$emit('toggleSidebar')"
         >
           <BaseIcon name="menu" classes="w-6 h-6" />
         </button>
@@ -77,7 +77,7 @@ export default {
   },
 
   emits: {
-    openMobileSidebar: null,
+    toggleSidebar: null,
   },
 }
 </script>

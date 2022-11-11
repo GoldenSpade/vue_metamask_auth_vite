@@ -1,6 +1,6 @@
 <template>
   <svg
-    :class="classes"
+    :class="classList"
     fill="currentColor"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@ export default {
     }
   },
   computed: {
-    classes() {
+    classList() {
       return this.classes || 'w-6 h-6'
     },
   },

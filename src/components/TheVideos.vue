@@ -1,5 +1,5 @@
 <template>
-  <main class="md:ml-24 xl:ml-64 pt-32 px-5 pb-5">
+  <main :class="classes">
     <TheIconsLibrary />
     <div
       class="
@@ -25,9 +25,22 @@ import TheIconsLibrary from './TheIconsLibrary.vue'
 export default {
   components: {VideoItem, TheIconsLibrary},
 
+  props: {
+    isSidebarOpen: Boolean,
+  },
+
   computed: {
     iconsInComponent() {
       return Object.keys(icons)
+    },
+
+    classes() {
+      return [
+        this.isSidebarOpen ? 'xl:ml-64 ' : 'md:ml-24',
+        'pt-32 ',
+        'px-5',
+        'pb-5',
+      ]
     },
   },
 }
