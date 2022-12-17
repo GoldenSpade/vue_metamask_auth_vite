@@ -1,40 +1,10 @@
 <template>
   <div class="relative">
     <img :src="`https://picsum.photos/seed/image${index}/720/404`" />
-    <span
-      class="
-        opacity-0
-        group-hover:opacity-100
-        bg-opacity-60
-        absolute
-        top-0
-        right-0
-        bg-black
-        text-white
-        rounded-sm
-        m-1
-        p-1
-      "
-    >
-      <BaseIcon name="clock" classes="w-5 h-5" />
-    </span>
-    <span
-      class="
-        opacity-0
-        group-hover:opacity-100
-        bg-opacity-60
-        absolute
-        top-8
-        right-0
-        bg-black
-        text-white
-        rounded-sm
-        m-1
-        p-1
-      "
-    >
-      <BaseIcon name="menuAlt3" classes="w-5 h-5" />
-    </span>
+
+    <VideoItemSumbnailButton icon="clock" label="Watch later" class="top-0"/>
+    <VideoItemSumbnailButton icon="menuAlt3" label="Add to queue" class="top-8"/>
+    
     <span
       class="
         opacity-100
@@ -58,8 +28,9 @@
 
 <script>
 import BaseIcon from './BaseIcon.vue'
+import VideoItemSumbnailButton from './VideoItemSumbnailButton.vue'
 export default {
   props: ['index'],
-  components: {BaseIcon},
+  components: {BaseIcon, VideoItemSumbnailButton},
 }
 </script>

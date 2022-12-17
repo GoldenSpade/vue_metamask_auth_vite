@@ -41,17 +41,10 @@
       <button class="sm:hidden p-2 focus:outline-none">
         <BaseIcon name="search" classes="w-5 h-5" />
       </button>
-      <button class="relative group p-2 focus:outline-none">
-        <BaseIcon name="viewGrid" classes="w-5 h-5" />
 
-        <!-- <TheDropdownApps /> -->
-      </button>
+      <TheDropdownApps />
 
-      <button class="relative group p-2 focus:outline-none">
-        <BaseIcon name="dotsVertical" classes="w-5 h-5" />
-
-        <!-- <TheDropdownSettings /> -->
-      </button>
+      <TheDropdownSettings />
 
       <ButtonLogin />
     </div>

@@ -1,6 +1,6 @@
 <template>
   <main :class="classes">
-    <TheIconsLibrary />
+    <!-- <TheIconsLibrary /> -->
     <div
       class="
         grid
